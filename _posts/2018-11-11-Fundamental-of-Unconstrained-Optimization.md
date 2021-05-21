@@ -128,10 +128,8 @@ For line search, fixing the direction $p_k$ → identifying an appropriate dista
 For trust region, choose a maximum distance - the trust region radius $\Delta_k$ → seek a direction and step
 
 #### Search directions for *Line search* methods
-{:.label}
 
 ##### The steepest-descent direction
-{:.label}
 
 The most obvious choice for search direction for line search method is *the steepest-descent direction* $- \nabla f_k$. That means among all the directions we could move from $x_k$, this is the way that $f$ decreases most rapidly.
 
@@ -243,24 +241,26 @@ H_{k+1} = (I - \rho_k s_k y_k^T) H_k (I - \rho_k y_k s_k^T) + \rho_k s_k s_k^T, 
 This can be implemented as a matrix-vector multiplication, which is typically simpler than the previous formula.
 
 ##### Nonlinear conjugate gradient methods
-{:.label}
 
 This method of search direction has form
 \\[
 p_k = -\nabla f(x_k) + \beta_k p_{k-1}
 \\]
 
-where $\beta_k$ is a scalar that ensure that $p_k$ and $p_{k-1}$ are \textit{conjugate}.\\
+where $\beta_k$ is a scalar that ensure that $p_k$ and $p_{k-1}$ are <em>conjugate</em>.\\
 This method is much more effective than the steepest descent direction, not requiring storage of matrices and simple to compute but does not retain the fast convergence rates of Newton or quasi-Newton methods.
 
 #### Models for Trust-region methods
-{:.label}
 
 The subproblem of Trust-region is
-$$ \min_{p} m_k(x_k + p) $$
-where $x_k + p$ lies inside the trust region. \\
+
+$$\min_{p} m_k(x_k + p)$$
+
+where $x_k + p$ lies inside the trust region.
+
 The model function has the quadratic fuction form:
-$$ m_k(x_k + p)= f_k + p^T \nabla f_k + \frac{1}{2} p^T B_k p $$
+
+$$m_k(x_k + p)= f_k + p^T \nabla f_k + \frac{1}{2} p^T B_k p$$
 
 We have some ways to choose $B_k$:
 * We set $B_k = 0$ and define the trust region using the Euclidean norm, the trust region subproblem becomes
@@ -292,17 +292,17 @@ In design complete algorithms, *scale invariance* is included in all aspects of 
 
 ## Rates of convergence
 
-**Definition**{:.label}\\
-	Let $\{x_k\}$ be a sequence in $\mathbb{R}^n$ that converges to $x^{\*}$. \\
-	We say that the convergence is **Q-linear** if there is a constant $r \in (0,1)$ such that
-	\\[ \frac{\| x_{k+1} - x* \|}{\| x_k - x* \|} \le r \text{, for all k sufficiently large} \\]
-	The convergence is said to be **Q-superlinear** if
-	\\[ \lim_{k \rightarrow \infty} \frac{\| x_{k+1} - x* \|}{\| x_k - x* \|} = 0 \text{, for all k sufficiently large} \\] \\
-	**Q-quadratic** is optained if
-	\\[ \frac{\| x_{k+1} - x* \|}{\| x_k - x* \|^2} \le M \text{, for all k sufficiently large}\\]
-	In general, the **Q-order** of convergence is p (with p > 1) if there is a positive constant M such that
-	\\[ \frac{\| x_{k+1} - x* \|}{\| x_k - x* \|^p} \le M \text{, for all k sufficiently large} \\]
-{:.definition}
+<div class="definition">
+	Let $\{x_k\}$ be a sequence in $\mathbb{R}^n$ that converges to $x^{*}$.
+	We say that the convergence is <strong>Q-linear</strong> if there is a constant $r \in (0,1)$ such that
+	$$\frac{\| x_{k+1} - x* \|}{\| x_k - x* \|} \le r \text{, for all k sufficiently large}$$
+	The convergence is said to be <strong>Q-superlinear</strong> if
+	$$\lim_{k \rightarrow \infty} \frac{\| x_{k+1} - x* \|}{\| x_k - x* \|} = 0 \text{, for all k sufficiently large}$$
+	<strong>Q-quadratic</strong> is optained if
+	$$\frac{\| x_{k+1} - x* \|}{\| x_k - x* \|^2} \le M \text{, for all k sufficiently large}$$
+	In general, the <strong>Q-order</strong> of convergence is p (with p > 1) if there is a positive constant M such that
+	$$\frac{\| x_{k+1} - x* \|}{\| x_k - x* \|^p} \le M \text{, for all k sufficiently large}$$
+</div>
 
 For example:
 * $1+(0.5)^k$ converges *Q-linearly* to 1
