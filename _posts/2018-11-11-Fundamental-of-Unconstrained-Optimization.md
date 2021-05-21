@@ -1,8 +1,9 @@
 ---
-layout: post
+layout: page
 title: Fundamentals of Unconstrained Optimization
 subtitle: Notes on Numerical Optimization
 categories: optimization
+math: true
 ---
 
 In unconstrained optimization, we minimize an objective function that depends on real variable, with no restriction:
@@ -14,75 +15,74 @@ where $x \in \mathbb{R}^n$ is a real vector with $n \ge 1$ components and $f: \m
 ## What is a solution?
 {:.label}
 
-**Definition**{:.label}
-A point x* is a *global minimizer* if $f(x^*) \le f(x), \forall x \in \mathbb{R}^n$
-{:.definition}
+<div class="definition">
+A point $x*$ is a <em>global minimizer</em> if $f(x^*) \le f(x), \forall x \in \mathbb{R}^n$
+</div>
 
 The global minimizer can be difficult to find. And most algorithms are able to find only a *local minimizer*:
 
-**Definition**{:.label}
-A point x* is a *local minimizer* if there is a neighborhood N of x* such that $f(x^*) \le f(x), \forall x \in N$
-{:.definition}
+<div class="definition">
+A point $x*$ is a <em>local minimizer</em> if there is a neighborhood N of $x*$ such that $f(x^*) \le f(x), \forall x \in N$
+</div>
 
 This is sometimes called a *weak local minimizer*.
 
-**Definition**{:.label}
-A point x* is a *strict local minimizer* (also called a strong local minimizer) if there is a neighborhood N of x* such that $f(x^ *) < f(x), \forall x \in N$  with $x \ne x^ *$.
-{:.definition}
+<div class="definition">
+A point $x*$ is a <em>strict local minimizer</em> (also called a strong local minimizer) if there is a neighborhood N of $x*$ such that $f(x^ *) < f(x), \forall x \in N$  with $x \ne x^ *$.
+</div>
 
-A slightly more exotic type of local minimizer:
+A slightly more exotic type of <em>local minimizer</em>:
 
-**Definition**{:.label}
-A point x* is an *isolated local minimizer* if there is a neighborhood N of x* such that x* is the only local minimizer in N.
-{:.definition}
+
+<div class="definition">A point $x*$ is an <em>isolated local minimizer</em> if there is a neighborhood N of $x*$ such that $x*$ is the only local minimizer in N.</div>
+
 
 While strict local minimizers are not always isolated, it is true that all isolated local minimizers are strict.
 
 ## Recognizing a local minimum
-{:.label}
 
 Is x* is a local minimum? → Examine all the points in its immediate vicinity to make sure that none of them has a smaller function value.
 
 If f is twice continuously differentiable, we may be able to tell that x* is a local minimizer (and possibly a strict local minimizer) by examining just the gradient $\nabla f(x^ * )$ and the Hessian $\nabla^2 f(x^ * )$  by using Taylor's theorem.
 
-**Theorem**{:.label}
-_**Taylor's Theorem**_\\
+<div class="theorem">
+<strong>Taylor's Theorem</strong>
+<br>
 Suppose that $f: \mathbb{R}^2 \rightarrow \mathbb{R}$ is continuously differentiable and that $p \in \mathbb{R}^n$. Then we have that
-\\[f(x+p) = f(x) + \nabla f(x+tp)^Tp \\]
-for some $t \in (0,1)$.\\
+$$f(x+p) = f(x) + \nabla f(x+tp)^Tp$$
+for some $t \in (0,1)$.
+<br>
 Moreover, if $f$ is twice continuously differentiable, we have that 
-\\[\nabla f(x+p) = \nabla f(x) + \int_0^1 \nabla ^2 f(x+tp)p \mathrm{d}t \\]
-and that \\
-\\[f(x+p) = f(x) + \nabla f(x+tp)^Tp +\frac{1}{2}p^T \nabla ^2 f(x+tp)p\\]
-{:.theorem}
+$$\nabla f(x+p) = \nabla f(x) + \int_0^1 \nabla ^2 f(x+tp)p \mathrm{d}t$$
+and that
+$$f(x+p) = f(x) + \nabla f(x+tp)^Tp +\frac{1}{2}p^T \nabla ^2 f(x+tp)p$$
+</div>
 
 *Necessary conditions* for optimality are derived by assuming that x* is a local minimizer and then providing facts about $\nabla f(x^ * $ and $\nabla^2 f(x^ * )$.
 
-**Theorem**{:.label}
-__First-Order Necessary Conditions__\\
-If x* is a local minimizer and f is continuous differentiable in an open neighborhood of x* , then $\nabla f(x^*) = 0$.
-{:.theorem}
+<div class="theorem">
+	<strong>First-Order Necessary Conditions</strong>
+	<br>
+	If x* is a local minimizer and f is continuous differentiable in an open neighborhood of x* , then $\nabla f(x^*) = 0$.
+</div>
 
-**Theorem**{:.label}
-__Second-Order Necessary Conditions__\\
-If x* is a local minimizer of $f$ and $\nabla^2 f$ is continuous in an open neighborhood of x* , then  $\nabla f(x^ * ) = 0$ and $\nabla^2 f(x^*)$  is positive semidefinite.
-{:.theorem}
+<div class="theorem">
+	<strong>Second-Order Necessary Conditions</strong>
+	<br>
+	If x* is a local minimizer of $f$ and $\nabla^2 f$ is continuous in an open neighborhood of x* , then  $\nabla f(x^ * ) = 0$ and $\nabla^2 f(x^*)$  is positive semidefinite.
+</div>
 
-**Theorem**{:.label}
-__Second-Order Sufficient Conditions__\\
-Suppose that $\nabla^2 f$ is continuous in an open neighborhood of x* and that $\nabla f(x^ * ) = 0$ and $\nabla^2 f(x^ * ) $ is positive definite. Then x* is a strict *local minimizer* of $f$. 
-{:.theorem}
+<div class="theorem">
+	<strong>Second-Order Sufficient Conditions</strong>
+	<br>
+	Suppose that $\nabla^2 f$ is continuous in an open neighborhood of x* and that $\nabla f(x^ * ) = 0$ and $\nabla^2 f(x^ * ) $ is positive definite. Then x* is a strict *local minimizer* of $f$.
+</div>
 
-
-**Theorem**{:.label}
-When $f$ is convex, any local minimizer x* is a global minimizer of $f$. If in addition $f$ is differentiable, then any stationary point x* is a global minimizer of $f$.
-{:.theorem}
+<div class="theorem">When f is convex, any local minimizer x* is a global minimizer of f. If in addition f is differentiable, then any stationary point x* is a global minimizer of f.</div>
 
 ## Algorithms
-{:.label}
 
 ### Line Search *vs* Trust Region
-{:.label}
 
 General approach of algorithms for unconstrained minimization:
 
@@ -93,7 +93,6 @@ General approach of algorithms for unconstrained minimization:
 There are 2 common strategies for moving from the current point $x_k$ to a new iterate $x_{k+1}$: *Line search* and *Trust region*.
 
 #### *Line search* strategy
-{:.label}
 
 * Choose a direction $p_k$ 
 * Search along this direction from the current state $x_k$ for a new state with a lower function value
@@ -106,26 +105,21 @@ $$
 The exact minimization is expensive and unnecessary. In fact, the line search algorithm generates a limited number of trial step lengths until it finds one that the loosely approximates the minimum of above minimization.
 
 #### *Trust region* strategy
-{:.label}
 
 * Construct a *model function* $m_k$ that approximately similar to $f$ in neighborhood of $x_k$.
-* Search minimizer of $m_k$ (also $x_k$) in some region around $x_k$. In other words, we find the candidate step p by approximately solving the following subproblem:
-
-$$
-\min_{p} m_k(x_k+p)
-$$
-
-where $x_k +p$ lies inside the trust region.
+* Search minimizer of $m_k$ (also $x_k$) in some region around $x_k$. In other words, we find the candidate step p by approximately solving the following subproblem: 
+  
+  $$\min_{p} m_k(x_k+p)$$ 
+  
+  where $x_k +p$ lies inside the trust region.
 
 * If solution does not produce a sufficient decrease in $f$ → *Trust region* is too large → Shrink it and re-solve.
 
-The trust region is defined by $\|p\|_2 \le \Delta$ where the scalar $\Delta > 0$ is called the trust-region radius. The model $m_k$  is usually defined to be a quadratic function of the form:
+  The trust region is defined by $\|p\|_2 \le \Delta$ where the scalar $\Delta > 0$ is called the trust-region radius. The model $m_k$  is usually defined to be a quadratic function of the form:
 
-$$
-m_k(x_k + p)= f_k + p^T \nabla f_k + \frac{1}{2} p^T B_k p
-$$
+  $$m_k(x_k + p)= f_k + p^T \nabla f_k + \frac{1}{2} p^T B_k p$$
 
-where $f_k, \nabla f_k, B_k$ are a scalar, vector, matrix, respectively. $B_k$ is either the Hessian $\nabla^2 f_k$ or some approximation to it.
+  where $f_k, \nabla f_k, B_k$ are a scalar, vector, matrix, respectively. $B_k$ is either the Hessian $\nabla^2 f_k$ or some approximation to it.
 
 The *line search* and *trust region* approaches differ in the order in which they choose the direction and distance of the move to the next iterate.
 
@@ -154,7 +148,7 @@ So, in this formula, *the rate of change* in $f$ along the direction $p$ at $x_k
 As the result, the unit direction $p$ of the most rapid decrease is the solution to the problem
 
 $$
-\min_p p^T \nabla f_k \text{, subject to} \|p\| =1
+\min_p p^T \nabla f_k \text{, subject to } \|p\| =1
 $$
 
 Because $p^T \nabla f_k = \|p\| \| \nabla f_k \| \cos \theta$ and $\| p\|=1$, we have $p^T \nabla f_k = \| \nabla f_k \| \cos \theta$. Minimization in (9) occurs when $\cos \theta = -1$ at $\theta = \pi$. In other words, the solution to (9) is
@@ -172,7 +166,6 @@ In visual representation, this direction is orthogonal to the contours of the fu
 When the $\theta$ is not exactly $\pi$ or the direction is just descent, Taylor's theorem also verifies that $f$ is still decreased with a sufficiently small. In this situation, $p_k$ is *a down hill direction*.
 
 ##### Newton direction
-{:.label}
 
 From the second-order Taylor series approximation to $f(x_k + p)$ :
 
@@ -205,7 +198,6 @@ The Newton direction approach has a fast rate of local convergence - quadratic.
 *The main disadvantage* of the Newton direction is the need for the Hessian $\nabla^2 f(x)$. This is usually a cumbersome, error-prone and expensive process.
 
 ##### Quasi-Newton direction
-{:.label}
 
 This method do not require computation of the Hessian but still have a super linear rate of convergence.
 
@@ -285,7 +277,6 @@ We have some ways to choose $B_k$:
 
 
 ## Scaling
-{:.label}
 
 <!-- \begin{figure}
 	\centering
@@ -300,7 +291,6 @@ Steepest descent and som optimization algorithms are sensitive to poor scaling, 
 In design complete algorithms, *scale invariance* is included in all aspects of algoritm. In general, it is easier to preserve scale invariance for line search algorithms than for trust-region algorithms.
 
 ## Rates of convergence
-{:.label}
 
 **Definition**{:.label}\\
 	Let $\{x_k\}$ be a sequence in $\mathbb{R}^n$ that converges to $x^{\*}$. \\
