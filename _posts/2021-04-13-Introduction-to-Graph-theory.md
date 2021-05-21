@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Introduction to Graph Theory
-subtitle: Notes from the book Discrete Mathematics with Application (Rosen)
+subtitle: Notes from the book Discrete Mathematics with Application (Kenneth H. Rosen)
 math: true
 ---
 
@@ -53,14 +53,15 @@ A vertex of degree zero is called **isolated** (not adjacent to any vertex).
 A vertex is **pendant** if and only if it has degree one (adjacent to exactly one other vertex).
 
 <div class="theorem">
-The handshaking theorem <br>
-Let $G=(V,E)$ be an undirected graph with $m$ edges:
-$$2m=\sum_{v\in V}\deg(v)$$
+    The handshaking theorem <br>
+    Let $G=(V,E)$ be an undirected graph with $m$ edges:
+    $$2m=\sum_{v\in V}\deg(v)$$
 </div>
 
 This theorem shows that the sum of the degrees of the vertices of an undirected graph is even, which lead to the below theorem.
 
-<div class="theorem">An undirected graph has an even number of vertices of odd degree.
+<div class="theorem">
+    An undirected graph has an even number of vertices of odd degree.
 </div>
 
 When $(u,v)$ is an edge of the graph G with directed edges, $u$ is said to be **adjacent to** $v$ and $v$ is said to be **adjacent from** $u$. The vertex $u$ is called the **initial vertex** of $(u,v)$, and $v$ is called the **terminal** or **end vertex** of $(u,v)$. The initial vertex and terminal vertex of a loop are the same.
@@ -68,8 +69,8 @@ When $(u,v)$ is an edge of the graph G with directed edges, $u$ is said to be **
 In a graph with directed edges the **in-degree** of a vertex v, denoted by $\deg^{-}(v)$, is the number of edges with v as their terminal vertex. The **out-degree** of v, denoted by $\deg^{+}(v)$, is the number of edges with v as their initial vertex. (Note that a loop at a vertex contributes 1 to both the in-degree and the out-degree of this vertex.)
 
 <div class="theorem">
-Let $G=(V,E)$be a graph with directed edges:
-$$\sum_{v\in V}\deg^{-}(v)=\sum_{v\in V}\deg^{+}(v)=|E|$$
+    Let $G=(V,E)$be a graph with directed edges:
+    $$\sum_{v\in V}\deg^{-}(v)=\sum_{v\in V}\deg^{+}(v)=|E|$$
 </div>
 
 Some special simple graphs:
@@ -82,7 +83,7 @@ Some special simple graphs:
 A simple graph $G$ is called **bipartite** if its vertex set $V$ can be partitioned into two disjoint sets $V_{1}$ and $V_{2}$ such that every edge in the graph connects a vertex in $V_{1}$ and a vertex in $V_{2}$ (so that no edge in $G$ connects either two vertices in $V_{1}$ or two vertices in $V_{2}$). When this condition holds, we call the pair $(V_{1},V_{2})$ a bipartition of the vertex set $V$ of $G$.
 
 <div class="theorem">
-A simple graph is bipartite if and only if it is possible to assign one of two different colors to each vertex of the graph so that no two adjacent vertices are assigned the same color.
+    A simple graph is bipartite if and only if it is possible to assign one of two different colors to each vertex of the graph so that no two adjacent vertices are assigned the same color.
 </div>
 
 A **complete bipartite graph** $K_{m,n}$ is a graph that has its vertex set partitioned into two subsets of $m$ and $n$ vertices, respectively with an edge between two vertices if and only if one vertex is in the first subset and the other vertex is in the second subset.
@@ -94,7 +95,8 @@ A vertex that is the endpoint of an edge of a matching $M$ is said to be matched
 A **maximum matching** is a matching with the largest number of edges. We say that a matching M in a bipartite graph $G=(V,E)$ with bipartition $(V_{1},V_{2})$ is a complete matching from $V_{1}$ to $V_{2}$ if every vertex in $V_{1}$ is the endpoint of an edge in the matching, or equivalently, if $\|M\|=\|V_1\|$.
 
 <div class="theorem">
-_(Hall's marriage theorem / Necessary and sufficient conditions for complete matching)_\\
+<strong>Hall's marriage theorem / Necessary and sufficient conditions for complete matching</strong>
+<br>
 The bipartite graph $G=(V,E)$ with bipartition $(V_{1},V_{2})$ has a complete matching from $V_{1}$ to $V_{2}$ if and only if $\|N(A)\| \ge \|A\|$ for all subsets A of $V_{1}$.
 </div>
 
@@ -143,7 +145,6 @@ $$
 ### Isomorphism
 
 <div class="definition">
-
 The simple graphs $G_1 = (V_1 , E_1 )$ and $G_2 = (V_2 , E_2 )$ are isomorphic if there exists a one-to-one and onto function $f$ from $V_1$ to $V_2$ with the property that $a$ and $b$ are adjacent in $G_1$ if and only if $f(a)$ and $f(b)$ are adjacent in $G_2$ , for all $a$ and $b$ in $V_1$ . Such a function $f$ is called
 an <strong>isomorphism</strong>. Two simple graphs that are not isomorphic are called <strong>nonisomorphic</strong>.
 
@@ -160,12 +161,12 @@ A property preserved by isomorphism of graphs is called a **graph invariant**. F
 
 ## Connectivity
 ### Paths
-{:.label}
 
-**Definition**{:.label}\\
-Let $n$ be a nonnegative integer and $G$ an undirected graph. \\
-A **path** of length $n$ from $u$ to $v$ in $G$ is a sequence of $n$ edges $e_1,...,e_n$ of $G$ for which there exists a sequence $x_0 = u,x_1,\dots,x_{n−1},x_n = v$ of vertices such that $e_i$ has, for $i = 1,\dots,n$, the endpoints $x_{i−1}$ and $x_i$.
-{:.definition}
+<div class="definition">
+Let $n$ be a nonnegative integer and $G$ an undirected graph.
+<br>
+A <strong>path</strong> of length $n$ from $u$ to $v$ in $G$ is a sequence of $n$ edges $e_1,...,e_n$ of $G$ for which there exists a sequence $x_0 = u,x_1,\dots,x_{n−1},x_n = v$ of vertices such that $e_i$ has, for $i = 1,\dots,n$, the endpoints $x_{i−1}$ and $x_i$.
+</div>
 
 When the graph is simple, we denote this path by its vertex sequence $x_0,x_1,\dots,x_n$ (because listing these vertices uniquely determines the path).
 
@@ -176,30 +177,29 @@ The path or circuit is said to pass through the vertices $x_1, x_2,\dots, x_{n�
 Read more: [Erdős Number](https://mathworld.wolfram.com/ErdosNumber.html), [Bacon number](https://simple.wikipedia.org/wiki/Bacon_number).
 
 ### Connectedness in Undirected Graphs
-{:.label}
 
-**Definition**{:.label}\\
-An **undirected graph** is called *connected* if there is a path between every pair of distinct
-vertices of the graph.\\
-An **undirected graph** that is *not connected* is called *disconnected*.\\
+<div class="definition">
+An <strong>undirected graph</strong> is called <em>connected</em> if there is a path between every pair of distinct
+vertices of the graph.
+<br>
+An <strong>undirected graph</strong> that is <em>not connected</em> is called <em>disconnected</em>.
+<br>
 We say that we disconnect a graph when we remove vertices or edges, or both, to produce a
 disconnected subgraph.
-{:.definition}
+</div>
 
 <figure>
   <img src="https://walkenho.github.io/images/graph-theory-and-networkX-part2-fig1.jpg" align="center">
   <figcaption>Connected vs Disconnected Graph (Credit <a href="https://walkenho.github.io/graph-theory-and-networkX-part2/">walkenho</a>)</figcaption>
 </figure>
 
-**Theorem**{:.label}
+<div clas="theorem">
 There is a simple path between every pair of distinct vertices of a connected undirected graph.
-{:.theorem}
+</div>
 
-
-**Definition**{:.label}\\
-A **connected component** of a graph G is a connected subgraph of G that is not a proper subgraph of another connected subgraph of G.
-{:.definition}
-
+<div class="definition">
+A <strong>connected component</strong> of a graph G is a connected subgraph of G that is not a proper subgraph of another connected subgraph of G.
+</div>
 That is, a connected component of a graph G is a maximal connected subgraph of G.
 
 A graph G that is not connected has two or more connected components that are disjoint and have G as their union.
@@ -212,12 +212,11 @@ A graph G that is not connected has two or more connected components that are di
 Read more: [Finding Connected Components using DFS](https://www.baeldung.com/cs/graph-connected-components#finding-connected-components)
 
 ### How Connected is a Graph?
-{:.label}
 
-**Definition**{:.label}\\
-**Cut vertices** or **Articulation points** is the vertices that if they and their incident edges are removed from a graph, a subgraph with more connected components is produced.\\
-An edge whose removal produces a graph with more connected components than in the original graph is called a **Cut edge** or **Bridge**.
-{:.definition}
+<div class="definition">
+<strong>Cut vertices</strong> or <strong>Articulation points</strong> is the vertices that if they and their incident edges are removed from a graph, a subgraph with more connected components is produced.<br>
+An edge whose removal produces a graph with more connected components than in the original graph is called a <strong>Cut edge</strong> or <strong>Bridge</strong>.
+</div>
 
 <figure>
     <img src="https://static.javatpoint.com/tutorial/graph-theory/images/connectivity3.png">
@@ -235,31 +234,28 @@ When a complete graph $K_n$ removes a vertex and all incidents to it, the result
 
 Connected graph having no cut vertex is a **nonseparable graph** which is more connected than a graph with a cut vertex.
 
-**Definition**{:.label}\\
-A subset $V'$ of the vertex set $V$ of $G=(V,E)$ is a **vertex cut**, or **separating set**, if $G-V'$ is disconnected.
-{:.definition}
+<div class="definition"><br>
+    A subset $V'$ of the vertex set $V$ of $G=(V,E)$ is a <strong>vertex cut</strong>, or <strong>separating set</strong>, if $G-V'$ is disconnected.
+    <br>
+    <strong>Vertex connectivity</strong> of a noncomplete graph $G$, denoted by $k(G)$, is the minimum number of vertices in a vertex cut.
+</div>
+
+When $G$ is a complete graph, it has no vertex cuts. Because removing any vertex and its incident edges still leaves a complete graph.
+
+
 
 #### Edge Connectivity
 
-
-
-
 ### Connectedness in Directed Graphs
-{:.label}
 
 ### Paths and Isomorphism
-{:.label}
 
 ### Counting Paths Between Vertices
-{:.label}
 
 ## Euler and Hamilton Paths
-{:.label}
 
 ### Euler Paths and Circuits
-{:.label}
 
 ### Hamilton Paths and Circuits
-{:.label}
 
 
