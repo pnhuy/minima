@@ -237,16 +237,77 @@ Connected graph having no cut vertex is a **nonseparable graph** which is more c
 <div class="definition"><br>
     A subset $V'$ of the vertex set $V$ of $G=(V,E)$ is a <strong>vertex cut</strong>, or <strong>separating set</strong>, if $G-V'$ is disconnected.
     <br>
-    <strong>Vertex connectivity</strong> of a noncomplete graph $G$, denoted by $k(G)$, is the minimum number of vertices in a vertex cut.
+    <strong>Vertex connectivity</strong> of a noncomplete graph $G$, denoted by $\kappa(G)$, is the minimum number of vertices in a vertex cut.
 </div>
+
+<figure>
+    <img src="https://i.stack.imgur.com/3zwRU.png">
+    <figcaption>The Vertex connectivity is 1, because removing the vertex A makes 2 connected components <br> (Credit <a href="https://math.stackexchange.com/questions/1951447/find-a-graph-that-has-a-high-minimum-degree-but-low-connectivity-and-edge-conne">stackexchange</a>)</figcaption>
+</figure>
 
 When $G$ is a complete graph, it has no vertex cuts. Because removing any vertex and its incident edges still leaves a complete graph.
 
+So, it's impossible to define $\kappa(G)$ as the smallest number of vertices in a vertex cut when $G$ is complete. In this case, we define $\kappa(K_n) = n-1$ as the number of vertices needed to be removed to produce a graph with a single vertex.
 
+In conclusion, for every graph G, $\kappa(G)$ is the minimum number of verties that can be removed from graph to either:
+* Disconnect G or
+* Prduce a graph with a single vertex
+
+We have:
+* $0 \le \kappa(G) \le n-1$ if G has n vertices
+* $\kappa(G) = 0$ if and only if G is disconnected or $G = K_1$
+* $\kappa(G) = 1$ if and only if G is complete
+
+The larger k(G) is, the more connected G is:
+* Disconnected graph or $K_1$ have $\kappa(G) = 0$
+* Connected graph with cut vetices and $K_2$ have $\kappa(G) = 1$
+* Graph without cut vertices and $K_3$ have $\kappa(G) = 2$
+* so on ...
+
+A graph is **k-connected** or **k-vertex-connected** if $\kappa(G) \ge k$:
+* 1-connected graph if it is connected and not a graph containing a single vertex
+* 2-connected is also called **biconnected** that is non seperable and has at least three vertices
+* G is a k-connected graph, then G is a j-connected for all j with $0 \le j \le k$
 
 #### Edge Connectivity
 
+<div class="definition"><br>
+    A set of edge E' is called an <strong>edge cut</strong> of G if the subgraph $G - E'$ is disconnected.
+    <br>
+    The <strong>edge connectivity</strong> of a graph G, denoted $\lambda(G)$, is the minimum number of edges in an edge cut of G.
+</div>
+
+We always define $\lambda(G)$ for any connected graphs with at least one vertex because it is always possible to disconnect a graph by removing all edges incident to one of its vertices.
+* $\lambda(G) = 0$ if G is not connected.
+* If G is a graph with $n$ vertices, then $0 \le \lambda(G) \le n - 1$
+* $\lambda(G) = n - 1$ *if and only if* $G = K_n$
+* $\lambda(G) \le n - 2$ *if and only if* G is **not** a complete graph.
+
+<div class="theorem">
+    When $G = (V,E)$ is a noncomplete connected graph with at least three vertices:
+    $$\kappa(G) \le \lambda(G) \le \min_{v \in V} \deg(v) $$
+</div>
+
+Proof: [[1]](https://math.stackexchange.com/questions/1441288/inequality-relating-connectivity-edge-connectivity-and-minimum-degreewhitneys), [[2]](http://www.math.nagoya-u.ac.jp/~richard/teaching/s2020/Suzuki_Quang.pdf)
+
+Read more:
+* [Connectivity algorithm](http://www.cse.msu.edu/~esfahani/book_chapter/Graph_connectivity_chapter.pdf)
+* [Edge and Vertex Connectivity](http://algorist.com/problems/Edge_and_Vertex_Connectivity.html)
+
 ### Connectedness in Directed Graphs
+
+<div class="definition"><br>
+    A directed graph is <strong>strongly connected</strong> if there is a path from a to b and from b to a whenever a and b are vertices in the graph. <br>
+    A directed graph is <strong>weakly connected</strong> if there is a path between every two vertices in the underlying undirected graph.
+</div>
+
+A directed graph is weakly connected *if and only if* there is always a path between two vertices when the directions of the edges are disregarded. Clearly, any strongly connected directed graph is also weakly connected.
+
+<figure>
+    <img src="https://www.mssqltips.com/tipimages2/6746_graph-analytics-using-apache-spark-graphframe-api.025.png">
+    <figcaption>Strong connected and Weakly connected graph (Credit <a href="https://www.mssqltips.com/sqlservertip/6746/graph-analytics-apache-spark-graphframe-api/">mssqltips</a>)</figcaption>
+</figure>
+
 
 ### Paths and Isomorphism
 
