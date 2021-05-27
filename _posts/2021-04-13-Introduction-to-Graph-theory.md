@@ -190,7 +190,7 @@ disconnected subgraph.
 
 <figure>
   <img src="https://walkenho.github.io/images/graph-theory-and-networkX-part2-fig1.jpg" align="center">
-  <figcaption>Connected vs Disconnected Graph (Credit <a href="https://walkenho.github.io/graph-theory-and-networkX-part2/">walkenho</a>)</figcaption>
+  <figcaption>Connected vs Disconnected Graph (<a href="https://walkenho.github.io/graph-theory-and-networkX-part2/">walkenho</a>)</figcaption>
 </figure>
 
 <div clas="theorem">
@@ -206,7 +206,7 @@ A graph G that is not connected has two or more connected components that are di
 
 <figure>
   <img src="https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/46457/versions/3/screenshot.jpg" width="75%">
-  <figcaption>Connected Components (Credit <a href="https://www.mathworks.com/matlabcentral/fileexchange/46457-splitting-a-network-into-connected-components">mathworks</a>)</figcaption>
+  <figcaption>Connected Components (<a href="https://www.mathworks.com/matlabcentral/fileexchange/46457-splitting-a-network-into-connected-components">mathworks</a>)</figcaption>
 </figure>
 
 Read more: [Finding Connected Components using DFS](https://www.baeldung.com/cs/graph-connected-components#finding-connected-components)
@@ -220,7 +220,7 @@ An edge whose removal produces a graph with more connected components than in th
 
 <figure>
     <img src="https://static.javatpoint.com/tutorial/graph-theory/images/connectivity3.png">
-    <figcaption>The vertices b, c, e is cut vertices and the edge (c, e) is cut edge <br> (Credit <a href="https://www.javatpoint.com/graph-theory-connectivity">javatpoint</a>)</figcaption>
+    <figcaption>The vertices b, c, e is cut vertices and the edge (c, e) is cut edge <br> (<a href="https://www.javatpoint.com/graph-theory-connectivity">javatpoint</a>)</figcaption>
 </figure>
 
 #### Vertex Connectivity
@@ -229,7 +229,7 @@ When a complete graph $K_n$ removes a vertex and all incidents to it, the result
 
 <figure>
     <img src="https://media.geeksforgeeks.org/wp-content/uploads/kargest-subset-of-graph-vertices-with-edges-of-2-or-more-colors-3.png">
-    <figcaption>Remove a vertex from a $K_6$ makes a $K_5$ graph (Credit <a href="https://www.geeksforgeeks.org/largest-subset-graph-vertices-edges-2-colors/">geeksforgeeks</a>)</figcaption>
+    <figcaption>Remove a vertex from a $K_6$ makes a $K_5$ graph (<a href="https://www.geeksforgeeks.org/largest-subset-graph-vertices-edges-2-colors/">geeksforgeeks</a>)</figcaption>
 </figure>
 
 Connected graph having no cut vertex is a **nonseparable graph** which is more connected than a graph with a cut vertex.
@@ -242,7 +242,7 @@ Connected graph having no cut vertex is a **nonseparable graph** which is more c
 
 <figure>
     <img src="https://i.stack.imgur.com/3zwRU.png">
-    <figcaption>The Vertex connectivity is 1, because removing the vertex A makes 2 connected components <br> (Credit <a href="https://math.stackexchange.com/questions/1951447/find-a-graph-that-has-a-high-minimum-degree-but-low-connectivity-and-edge-conne">stackexchange</a>)</figcaption>
+    <figcaption>The Vertex connectivity is 1, because removing the vertex A makes 2 connected components <br> (<a href="https://math.stackexchange.com/questions/1951447/find-a-graph-that-has-a-high-minimum-degree-but-low-connectivity-and-edge-conne">stackexchange</a>)</figcaption>
 </figure>
 
 When $G$ is a complete graph, it has no vertex cuts. Because removing any vertex and its incident edges still leaves a complete graph.
@@ -305,13 +305,58 @@ A directed graph is weakly connected *if and only if* there is always a path bet
 
 <figure>
     <img src="https://www.mssqltips.com/tipimages2/6746_graph-analytics-using-apache-spark-graphframe-api.025.png">
-    <figcaption>Strong connected and Weakly connected graph (Credit <a href="https://www.mssqltips.com/sqlservertip/6746/graph-analytics-apache-spark-graphframe-api/">mssqltips</a>)</figcaption>
+    <figcaption>Strong connected and Weakly connected graph (<a href="https://www.mssqltips.com/sqlservertip/6746/graph-analytics-apache-spark-graphframe-api/">mssqltips</a>)</figcaption>
 </figure>
 
+<div class="definition">
+    The <strong>strongly connected components</strong> or <strong>strong components</strong> of $G$ are the maximal strongly connected subgraphs which is the subgraphs of a directed graph $G$ that are strongly connected but not contained in larger strongly connected subgraphs.
+</div>
+
+<figure>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Scc.png">
+    <figcaption>
+        Graph with strongly connected components marked (<a href="https://en.wikipedia.org/wiki/Strongly_connected_component">Wikipedia</a>)
+    </figcaption>
+</figure>
+
+Read more:
+* [Kosaraju’s algorithm](https://www.geeksforgeeks.org/strongly-connected-components/)
+* [Tarjan's algorithm](https://www.youtube.com/watch?v=wUgWX0nc4NY)
 
 ### Paths and Isomorphism
 
+<img src="https://rpruim.github.io/m252/S19/from-class/images/GraphFig9-4-6.png">
+
+Both $G$ and $H$ have same three invariants: number of vertices, number of edges, and degrees of vertices—all agree for the two graphs. 
+
+However, $H$ has a simple circuit of length three, namely, $v_1, v_2, v_6, v_1$, whereas $G$ has no simple circuit of length three, as can be determined by inspection (all simple circuits in $G$ have length at least four). Because the existence of a simple circuit of length three is an isomorphic invariant, $G$ and $H$ are not isomorphic.
+
+<img src="https://rpruim.github.io/m252/S19/from-class/images/GraphFig9-4-7.png">
+
+Both G and H have five vertices and six edges, both have two vertices of degree three and three vertices of degree two, and both have a simple circuit of length three, a simple circuit of length four, and a simple circuit of length five. Because all these isomorphic invariants agree, G and H may be isomorphic.
+
+To confirm isomorphism, find the path go through all same degrees of 2 graphs. For example, the paths $u_1 \rightarrow u_4 \rightarrow u_3 \rightarrow u_2 \rightarrow u_5$ in $G$ and $v_3 \rightarrow v_2 \rightarrow v_1 \rightarrow v_5 \rightarrow v_4$ in $H$ both go through degrees: $3 \rightarrow 2 \rightarrow 3 \rightarrow 2 \rightarrow 2$. So, we can establish a mapping $f$ with $f(u_1) = v_3$, $f(u_4) = v_2$, $f(u_3) = v_1$, $f(u_2) = v_5$, and $f(u_5) = v_4$, this leads to that $G$ and $H$ are isomorphic.
+
 ### Counting Paths Between Vertices
+
+<div class="definition">
+    Let G be a graph with adjacency matrix $A$ with respect to the ordering $v_1, v_2, \dots, v_n$ of the vertices of the graph (with directed or undirected edges, with multiple edges and loops allowed).<br>
+    The number of different paths of length $r$ from $v_i$ to $v_j$, where $r$ is a positive integer, equals the $(i, j)$th entry of $A^r$.
+</div>
+
+For example ([sfu](https://www.cs.sfu.ca/~ggbaker/zju/math/paths.html)):
+
+The graph :
+
+![](https://www.cs.sfu.ca/~ggbaker/zju/math/img/graph-path3.svg)
+
+Adjacency Matrix:
+
+$$M=\left[\begin{smallmatrix}1&1&0&0&1 \\ 1&0&0&0&0 \\ 0&1&0&1&0 \\ 0&1&1&0&0 \\ 1&0&0&0&1 \end{smallmatrix}\right]$$
+
+The number of paths of length 2 between each pair of vertices:
+
+$$M^2=\left[\begin{smallmatrix}3&1&0&0&2 \\ 1&1&0&0&1 \\ 1&1&1&0&0 \\ 1&1&0&1&0 \\ 2&1&0&0&2\end{smallmatrix}\right]$$
 
 ## Euler and Hamilton Paths
 
