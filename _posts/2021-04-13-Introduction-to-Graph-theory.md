@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: post
 title: Introduction to Graph Theory
 subtitle: Notes from the book Discrete Mathematics with Application (Kenneth H. Rosen)
+author: Huy Pham
 math: true
 ---
 
