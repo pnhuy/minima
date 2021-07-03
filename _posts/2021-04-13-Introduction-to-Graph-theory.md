@@ -361,12 +361,93 @@ $$M^2=\left[\begin{smallmatrix}3&1&0&0&2 \\ 1&1&0&0&1 \\ 1&1&1&0&0 \\ 1&1&0&1&0 
 
 ## Euler and Hamilton Paths
 
+### Euler Paths and Circuits
+
 <div class="definition">
-    An Euler circuit in a graph G is a simple circuit containing every edge of G. An Euler path in G is a simple path containing every edge of G.
+    An <em>Euler circuit</em> in a graph G is a simple circuit containing every edge of G. <br>
+    An <em>Euler path </em>in G is a simple path containing every edge of G.
 </div>
 
-### Euler Paths and Circuits
+<figure>
+    <div class="row">
+        <div class="column">
+            <img src="https://user-images.githubusercontent.com/35303672/48727444-3da06880-ec58-11e8-9df5-821c5c1e3b1c.png">
+        </div>
+        <div class="column">
+            <img src="https://user-images.githubusercontent.com/35303672/48727417-28c3d500-ec58-11e8-9715-33b168a50b7c.png">
+        </div>
+    </div>
+    <figcaption>Euler circuit and Euler path (Credit: <a href="https://github.com/memr5/Eulerian-Path-and-Cycle-Detector">github/memr5</a>)</figcaption>
+</figure>
+
+<div class="theorem">
+    A connected multigraph with at least two vertices has an <strong>Euler circuit</strong> if and only if each of its vertices has even degree.
+</div>
+
+
+<div class="theorem">
+    A connected multigraph has an Euler path but not an Euler circuit if and only if it has exactly two vertices of odd degree.
+</div>
+
+This is the recursive procedure to find the Euler path of a graph:
+
+<pre><code class="language-html">procedure FindEulerPath(V)
+  1. iterate through all the edges outgoing from vertex V;
+       remove this edge from the graph,
+       and call FindEulerPath from the second end of this edge;
+  2. add vertex V to the answer.</code></pre>
+
+The procedure could be rewrite in the non-recursive version:
+
+<pre><code class="language-html">stack St;
+put start vertex in St;
+until St is empty
+  let V be the value at the top of St;
+  if degree(V) = 0, then
+    add V to the answer;
+    remove V from the top of St;
+  otherwise
+    find any edge coming out of V;
+    remove it from the graph;
+    put the second end of this edge in St;</code></pre>
+
+Credit <a href="https://cp-algorithms.com/graph/euler_path.html">cp-algorithms</a> for the pseudocode.
 
 ### Hamilton Paths and Circuits
 
+<div class="definition">
+    A simple path in a graph $G$ that passes through every vertex exactly once is called a <strong>Hamilton path</strong>, and a simple circuit in a graph G that passes through every vertex exactly once is called a <strong>Hamilton circuit</strong>. 
+    <br>
+    That is, the simple path $x_0, x_1, \dots ,x_{n−1}, x_n$ in the graph $G = (V , E)$ is a Hamilton path if $V = {x_0, x_1, \cdots , x_{n−1}, x_n}$ and $x_i = x_j$ for $0 \le i < j \le n$, and the simple circuit $x_0, x_1, \dots , x_{n−1}, x_n, x_0$ (with $n > 0$) is a Hamilton circuit if $x_0, x_1, \dots , x_{n−1}, x_n$ is a Hamilton path.
+</div>
 
+There are no known simple
+necessary and sufficient criteria for the existence of Hamilton circuits. However, many theorems are known that give sufficient conditions for the existence of Hamilton circuits. Also, certain properties can be used to show that a graph has no Hamilton circuit.
+
+<div class="theorem"><strong>Dirac's theorem</strong>
+    If $G$ is a simple graph with n vertices with $n \ge 3$ such that the degree of every vertex in $G$ is at least $n/2$, then $G$ has a Hamilton circuit.
+</div>
+
+<div class="theorem"><strong>Ore's Theorem</strong>
+    If $G$ is a simple graph with $n$ vertices with $n \ge 3$ such that \deg(u) + \deg(v) \ge n for every pair of nonadjacent vertices $u$ and $v$ in $G$, then $G$ has a Hamilton circuit.
+</div>
+
+## Shortest-Path Problems
+
+## Planar Graphs
+
+## Graph Coloring
+
+<style>
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
