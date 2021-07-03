@@ -361,6 +361,10 @@ $$M^2=\left[\begin{smallmatrix}3&1&0&0&2 \\ 1&1&0&0&1 \\ 1&1&1&0&0 \\ 1&1&0&1&0 
 
 ## Euler and Hamilton Paths
 
+<div class="definition">
+    An Euler circuit in a graph G is a simple circuit containing every edge of G. An Euler path in G is a simple path containing every edge of G.
+</div>
+
 ### Euler Paths and Circuits
 
 ### Hamilton Paths and Circuits
