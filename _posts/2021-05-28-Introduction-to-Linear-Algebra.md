@@ -546,7 +546,7 @@ $$
 <div class="definition"><strong>Linear Independence</strong>
 An set of vectors $\{ v_1, \dots , v_p \} \in \mathbb{R}^n$ is said to be <strong>linearly independent</strong> if the vector equation 
 $$ x_1 v_1 + x_2 v_2 + \dots + x_p v_p = 0 $$
-has only the trivial solution. \newline
+has only the trivial solution. <br>
 The set $\{ v_1, \dots , v_p \} $ is said to be <strong>linearly dependent</strong> if there exist weights $c_1, \dots , c_p$, not all zero, such that
 $$ c_1 v_1 + c_2 v_2 + \dots + c_p v_p = 0 $$
 </div>
@@ -664,25 +664,25 @@ $$
 
   $$ (A-3I)x = 0 $$
 
-  For $\lambda = 3$, we have the augmented matrix:
+    * For $\lambda = 3$, we have the augmented matrix:
 
-  $$\begin{bmatrix}
-      2-3 & -4 & 0 \\
-      -1 & -1 - 3 & 0     
-  \end{bmatrix}
-  \rightarrow
-  \begin{bmatrix}
-  -1 & -4 & 0 \\
-  -1 & -4 & 0     
-  \end{bmatrix}
-  \rightarrow
-  \begin{bmatrix}
-  1 & 4 & 0 \\
-  0 & 0 & 0       
-  \end{bmatrix}
-  $$
+      $$\begin{bmatrix}
+          2-3 & -4 & 0 \\
+          -1 & -1 - 3 & 0     
+      \end{bmatrix}
+      \rightarrow
+      \begin{bmatrix}
+      -1 & -4 & 0 \\
+      -1 & -4 & 0     
+      \end{bmatrix}
+      \rightarrow
+      \begin{bmatrix}
+      1 & 4 & 0 \\
+      0 & 0 & 0       
+      \end{bmatrix}
+      $$
 
-    * The eigenvector corresponding to $\lambda = 3$:
+      The eigenvector corresponding to $\lambda = 3$:
   
       $$x = k \begin{pmatrix}
           -4 \\
@@ -698,7 +698,7 @@ $$
       \end{pmatrix}
       $$ where k is nonzero scalar. 
 
-The <code>numpy</code> package in Python support finding eigenvalues quickly:
+The <code>numpy</code> package in Python supports finding eigenvalues quickly:
 ```python
 >>> import numpy as np
 >>> A = np.array([[2, -4],[-1,-1]])
