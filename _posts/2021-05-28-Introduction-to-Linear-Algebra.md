@@ -14,6 +14,11 @@ math: true
     $$
 </div>
 
+<figure>
+  <img src="https://hadrienj.github.io/assets/images/2.1/scalar-vector-matrix-tensor.png" style="max-width: 50%;">
+  <figcaption>Basic elements of linear algebra. Credit <a href="https://hadrienj.github.io/posts/Deep-Learning-Book-Series-2.1-Scalars-Vectors-Matrices-and-Tensors/">github/hadrienj</a></figcaption>
+</figure>
+
 
 ### Operations on Vectors
 #### Vector-Vector addition & substraction
@@ -30,6 +35,11 @@ math: true
     \end{bmatrix} 
     $$
 </div>
+
+<figure>
+  <img src="http://media5.datahacker.rs/2020/03/Picture40-1024x724.jpg">
+  <figcaption>Illustation of vector addition. Credit <a href="http://datahacker.rs/essence-of-linear-algebra-vectors/">datahacker</a></figcaption>
+</figure>
 
 
 #### Vector-Vector multiplication
@@ -542,8 +552,14 @@ $$
 
   If $A$ is a $2 \times 2$ matrix, the area of the parallelogram determined by te columns of $A$ is $\|\det A\|$. If $A$ is a $3 \times 3$ matrix, the volume of the paralellepiped determined by the columns of $A$ is $\|\det A\|$.
 
+<div class="row">
+  <div class="column"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Area_parallellogram_as_determinant.svg" style="max-height: 300px;"></div>
+  <div class="column"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Determinant_parallelepiped.svg" style="max-height: 300px;"></div>
+  <figcaption>Determinants as Area or Volume. Credit <a href="https://en.wikipedia.org/wiki/Determinant">Wikipedia/Determinant</a></figcaption>
+</div>
+
 ### Linear Independence and Rank
-<div class="definition"><strong>Linear Independence</strong>
+<div class="definition"><strong>Linear Independence</strong><br>
 An set of vectors $\{ v_1, \dots , v_p \} \in \mathbb{R}^n$ is said to be <strong>linearly independent</strong> if the vector equation 
 $$ x_1 v_1 + x_2 v_2 + \dots + x_p v_p = 0 $$
 has only the trivial solution. <br>
@@ -551,11 +567,13 @@ The set $\{ v_1, \dots , v_p \} $ is said to be <strong>linearly dependent</stro
 $$ c_1 v_1 + c_2 v_2 + \dots + c_p v_p = 0 $$
 </div>
 
-<div class="definition"><strong>Rank</strong>
+<div class="definition"><strong>Rank</strong><br>
 Given a matrix $A \in \mathbb{R}^{m \times n}$:
-* The <strong>column rank</strong> of $A$ is the size of the largest subset of columns of $A$ that constitute a linearly independent set.
-* The <strong>row rank</strong> of $A$ is the size of the largest subset of rows of $A$ that constitute a linearly independent set
-* If the column rank of $A$ is equal to its row rank, this number is the <strong>rank</strong> of $A$.
+<ul>
+  <l>The <strong>column rank</strong> of $A$ is the size of the largest subset of columns of $A$ that constitute a linearly independent set.</l>
+  <l>The <strong>row rank</strong> of $A$ is the size of the largest subset of rows of $A$ that constitute a linearly independent set</l>
+  <li>If the column rank of $A$ is equal to its row rank, this number is the <strong>rank</strong> of $A$.</li>
+</ul>
 </div>
 
 
@@ -711,3 +729,15 @@ array([ 3., -2.])
 [2] Zico Kolter. Linear algebra review and reference, 2008. \\
 [3] D.C. Lay, S.R. Lay, and J.J. McDonald. Linear Algebra and Its Applications. Pearson Education, 2015. \\
 [4] G. Strang. Linear Algebra and Its Applications. Thomson, Brooks/Cole, 2006.
+
+<style>.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}</style>
