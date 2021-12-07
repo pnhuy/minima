@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Fundamentals of Unconstrained Optimization
-subtitle: Notes on Numerical Optimization
+subtitle: Notes on reading Numerical Optimization - Jorge Nocedal and Stephen J. Wright
 categories: optimization
 math: true
 ---
