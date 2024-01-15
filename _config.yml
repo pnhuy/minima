@@ -14,14 +14,16 @@ minima:
 
   # generate social links in footer
   social_links:
+    - { platform: github, user_url: "https://github.com/pnhuy/" }
+    - { platform: linkedin, user_url: "https://www.linkedin.com/in/huynp/" }
     # twitter: ngochuyyds
-    github:  pnhuy
+    # github:  pnhuy
     # devto: jekyll
     # dribbble: jekyll
     # facebook: jekyll
     # flickr:   jekyll
     # instagram: jekyll
-    linkedin: huynp
+    # linkedin: huynp
     # pinterest: jekyll
     # youtube: jekyll
     # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
