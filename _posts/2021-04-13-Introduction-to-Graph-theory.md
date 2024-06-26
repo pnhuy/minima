@@ -413,6 +413,56 @@ until St is empty
 
 Credit <a href="https://cp-algorithms.com/graph/euler_path.html">cp-algorithms</a> for the pseudocode.
 
+<div class="definition">
+    An <em>Euler circuit</em> in a graph G is a simple circuit containing every edge of G. <br>
+    An <em>Euler path </em>in G is a simple path containing every edge of G.
+</div>
+
+<figure>
+    <div class="row">
+        <div class="column">
+            <img src="https://user-images.githubusercontent.com/35303672/48727444-3da06880-ec58-11e8-9df5-821c5c1e3b1c.png">
+        </div>
+        <div class="column">
+            <img src="https://user-images.githubusercontent.com/35303672/48727417-28c3d500-ec58-11e8-9715-33b168a50b7c.png">
+        </div>
+    </div>
+    <figcaption>Euler circuit and Euler path (Credit: <a href="https://github.com/memr5/Eulerian-Path-and-Cycle-Detector">github/memr5</a>)</figcaption>
+</figure>
+
+<div class="theorem">
+    A connected multigraph with at least two vertices has an <strong>Euler circuit</strong> if and only if each of its vertices has even degree.
+</div>
+
+
+<div class="theorem">
+    A connected multigraph has an Euler path but not an Euler circuit if and only if it has exactly two vertices of odd degree.
+</div>
+
+This is the recursive procedure to find the Euler path of a graph:
+
+<pre><code class="language-html">procedure FindEulerPath(V)
+  1. iterate through all the edges outgoing from vertex V;
+       remove this edge from the graph,
+       and call FindEulerPath from the second end of this edge;
+  2. add vertex V to the answer.</code></pre>
+
+The procedure could be rewrite in the non-recursive version:
+
+<pre><code class="language-html">stack St;
+put start vertex in St;
+until St is empty
+  let V be the value at the top of St;
+  if degree(V) = 0, then
+    add V to the answer;
+    remove V from the top of St;
+  otherwise
+    find any edge coming out of V;
+    remove it from the graph;
+    put the second end of this edge in St;</code></pre>
+
+Credit <a href="https://cp-algorithms.com/graph/euler_path.html">cp-algorithms</a> for the pseudocode.
+
 ### Hamilton Paths and Circuits
 
 <div class="definition">
