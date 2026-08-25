@@ -26,6 +26,16 @@ plugins:
   - jekyll-seo-tag
   - jekyll-remote-theme
 
+# Theme demo posts inherited from jekyll/minima. Excluded rather than deleted so
+# the files stay identical to upstream and merges from it remain conflict-free.
+exclude:
+  - _posts/2016-05-19-codeblocks-ahoy.md
+  - _posts/2016-05-19-super-short-article.md
+  - _posts/2016-05-20-my-example-post.md
+  - _posts/2016-05-20-super-long-article.md
+  - _posts/2016-05-20-this-post-demonstrates-post-content-styles.md
+  - _posts/2016-05-20-welcome-to-jekyll.md
+
 
 # Minima-specific settings (Minima v3 and above)
 # ----------------------------------------------
