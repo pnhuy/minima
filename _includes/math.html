@@ -6,16 +6,32 @@
       }
     };
 </script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<!-- Latex CSS -->
-<link rel="stylesheet" href="https://latex.now.sh/style.css">
-
-<link rel="stylesheet" href="https://latex.now.sh/prism/prism.css">
-<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+<!-- LaTeX paper styling for `math: true` posts.
+     Pinned to an exact version rather than an unversioned URL: this is a
+     third-party stylesheet, and the polyfill.io incident is the argument for
+     never loading "whatever is latest" from someone else's host. -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/latex.css@1.14.0/style.css">
 
 <style>
+/* Latin Modern has a small x-height, so latex.css's 16px root reads smaller
+   than Minima's sans-serif at the same nominal size. Scale the root rather than
+   `body`: everything in latex.css is sized in rem/em, so headings, code and
+   footnotes all grow in proportion. Adjust this one number to taste. */
+html {
+    font-size: 1.125rem;
+}
+
+/* Minima's `body` rule uses the `font` shorthand, which pins an absolute 16px.
+   latex.css never sets a body font-size, so that 16px wins and the text below
+   would ignore the root scale above. `1rem` here resolves against the root. */
+body {
+    font-size: 1rem;
+}
+
+/* latex.css constrains the body to a paper-like measure, which fights Minima's
+   own layout. Hand the width back to the theme. */
 body {
     max-width: none;
 }

@@ -36,11 +36,45 @@ img {
   margin-right: auto;
 }
 
+/**
+ * LaTeX-style numbered environments.
+ *
+ * The bordered box is ours; the auto-numbered labels used to come from
+ * latex.css, loaded via `_includes/math.html`. That dependency is gone, so the
+ * counters live here instead — which also means the numbering now works on any
+ * post, not just ones with `math: true`.
+ */
+body {
+  counter-reset: theorem definition;
+}
+
 .definition, .theorem {
   text-align: justify;
   border-style: solid;
   border-width: thin;
   padding: 5px;
+
+  &::before {
+    font-weight: bold;
+    font-style: normal;
+  }
+}
+
+.definition {
+  counter-increment: definition;
+
+  &::before {
+    content: 'Definition ' counter(definition) '. ';
+  }
+}
+
+.theorem {
+  counter-increment: theorem;
+  font-style: italic;
+
+  &::before {
+    content: 'Theorem ' counter(theorem) '. ';
+  }
 }
 /**
  * Click-to-zoom lightbox (see assets/js/lightbox.js)
