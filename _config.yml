@@ -1,122 +1,68 @@
+# Site-wide settings
+# ------------------
 title: HuyNotes
 author:
   name: Huy Pham
   # email: keixi512@gmail.com
-description: > # this means to ignore newlines until "show_excerpts:"
+description: > # this means to ignore newlines until the next key
   My Learning Curve
 
-show_excerpts: false # set to true to show excerpts on the homepage
-
-# Minima date format
-# refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
-minima:
-  date_format: "%b %-d, %Y"
-
-  # generate social links in footer
-  social_links:
-    - { platform: github, user_url: "https://github.com/pnhuy/" }
-    - { platform: linkedin, user_url: "https://www.linkedin.com/in/huynp/" }
-    # twitter: ngochuyyds
-    # github:  pnhuy
-    # devto: jekyll
-    # dribbble: jekyll
-    # facebook: jekyll
-    # flickr:   jekyll
-    # instagram: jekyll
-    # linkedin: huynp
-    # pinterest: jekyll
-    # youtube: jekyll
-    # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
-    # youtube_channel_name: CloudCannon
-    # telegram: jekyll
-    # googleplus: +jekyll
-    # microdotblog: jekyll
-    # keybase: jekyll
-
-    # Mastodon instances
-    # mastodon:
-    # - username: jekyll
-    #   instance: example.com
-    # - username: jekyll2
-    #   instance: example.com
-
-    # GitLab instances
-    # gitlab:
-    # - username: jekyll
-    #   instance: example.com
-    # - username: jekyll2
-    #   instance: example.com
-
 google_analytics: G-07SWM60HFL
 
-# If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
-#header_pages:
-# - about.md
-
-# Minima date format
-# refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
-minima:
-  date_format: "%b %-d, %Y"
-
-  # generate social links in footer
-  social_links:
-    - { platform: github, user_url: "https://github.com/pnhuy/" }
-    - { platform: linkedin, user_url: "https://www.linkedin.com/in/huynp/" }
-    # twitter: ngochuyyds
-    # github:  pnhuy
-    # devto: jekyll
-    # dribbble: jekyll
-    # facebook: jekyll
-    # flickr:   jekyll
-    # instagram: jekyll
-    # linkedin: huynp
-    # pinterest: jekyll
-    # youtube: jekyll
-    # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
-    # youtube_channel_name: CloudCannon
-    # telegram: jekyll
-    # googleplus: +jekyll
-    # microdotblog: jekyll
-    # keybase: jekyll
-
-    # Mastodon instances
-    # mastodon:
-    # - username: jekyll
-    #   instance: example.com
-    # - username: jekyll2
-    #   instance: example.com
-
-    # GitLab instances
-    # gitlab:
-    # - username: jekyll
-    #   instance: example.com
-    # - username: jekyll2
-    #   instance: example.com
-
-google_analytics: G-07SWM60HFL
-
-# If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
-#header_pages:
-# - about.md
 
 # Build settings
-
+# --------------
+#
 # If you clone the Minima repo and build locally, use this setting.
 # theme: minima
-
-# As of November 2023, GitHub Pages still uses Minima 2.5.1 (https://pages.github.com/versions/). 
-# If you want to use the latest Minima version on GitHub Pages, use the following setting and 
+#
+# As of November 2023, GitHub Pages still uses Minima 2.5.1 (https://pages.github.com/versions/).
+# If you want to use the latest Minima version on GitHub Pages, use the following setting and
 # add a line comment on "theme: minima" above.
 remote_theme: jekyll/minima
 
 plugins:
- - jekyll-feed
- - jekyll-seo-tag
- - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-remote-theme
+
+
+# Minima-specific settings (Minima v3 and above)
+# ----------------------------------------------
+minima:
+  # Available skins: classic, dark, auto, solarized-light, solarized-dark, solarized
+  # skin: auto
+
+  # Minima date format
+  # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
+  date_format: "%b %-d, %Y"
+
+  # If you want to link only specific pages in your header, uncomment
+  # this and add the path to the pages in order as they should show up
+  # nav_pages:
+  #   - about.md
+
+  # Set to `true` to show excerpts on the homepage.
+  show_excerpts: false
+
+  # Social Media Links.
+  # Rendered via Font Awesome Free webfonts CDN. Valid entry keys:
+  #   * title    Tooltip rendered on hovering over icon.
+  #   * icon     Font Awesome icon id. `github` corresponds to `fa-github`.
+  #   * url      Full URL of social profile.
+  social_links:
+    - title: Huy Pham at GitHub
+      icon: github
+      url: "https://github.com/pnhuy/"
+    - title: Huy Pham at LinkedIn
+      icon: linkedin
+      url: "https://www.linkedin.com/in/huynp/"
+
+  # Set to `true` to not render the syndication feed link in the social-links list.
+  # hide_site_feed_link: false
+
 
 disqus:
-    # Leave shortname blank to disable comments site-wide.
-    # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
-    shortname: huynp
+  # Leave shortname blank to disable comments site-wide.
+  # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
+  shortname: huynp
