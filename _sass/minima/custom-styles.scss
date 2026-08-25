@@ -42,3 +42,94 @@ img {
   border-width: thin;
   padding: 5px;
 }
+/**
+ * Click-to-zoom lightbox (see assets/js/lightbox.js)
+ *
+ * Sizing here is deliberately in absolute units rather than $spacing-unit:
+ * this is full-viewport chrome, not page flow, so it should not inherit the
+ * site's tightened 10px spacing rhythm.
+ */
+.zoomable {
+  cursor: zoom-in;
+}
+
+body.lightbox-open {
+  overflow: hidden;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow: auto;
+  overscroll-behavior: contain;
+  cursor: zoom-out;
+
+  &[hidden] { display: none; }
+}
+
+.lightbox__figure {
+  min-height: 100%;
+  margin: 0;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.lightbox__img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: calc(100vh - 7rem);
+  background-color: #fff;
+  cursor: zoom-in;
+}
+
+// Actual-size view: let the image overflow so the overlay can pan.
+.lightbox.is-zoomed .lightbox__img {
+  max-width: none;
+  max-height: none;
+  cursor: zoom-out;
+}
+
+.lightbox__caption {
+  flex: none;
+  max-width: $content-width;
+  margin-top: 1rem;
+  color: #ccc;
+  font-size: $small-font-size;
+  line-height: 1.4;
+  text-align: center;
+
+  &[hidden] { display: none; }
+}
+
+.lightbox.is-zoomed .lightbox__caption {
+  display: none;
+}
+
+.lightbox__close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+}
