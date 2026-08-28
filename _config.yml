@@ -7,6 +7,10 @@ author:
 description: > # this means to ignore newlines until the next key
   My Learning Curve
 
+# Canonical origin. Required by jekyll-sitemap for absolute <loc> entries, and
+# used by jekyll-seo-tag and jekyll-feed for canonical / self URLs.
+url: "https://huynp.com"
+
 google_analytics: G-07SWM60HFL
 
 
@@ -25,6 +29,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-remote-theme
+  - jekyll-sitemap
 
 # Theme demo posts inherited from jekyll/minima. Excluded rather than deleted so
 # the files stay identical to upstream and merges from it remain conflict-free.
